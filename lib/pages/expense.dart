@@ -47,7 +47,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                 BorderRadius.all(Radius.circular(5)))),
                   ),
                 ),
-                Padding(
+                Padding( 
                   padding: EdgeInsets.only(bottom: 21),
                   child: TextField(
                     decoration: InputDecoration(
