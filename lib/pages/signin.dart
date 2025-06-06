@@ -1,3 +1,4 @@
+import 'package:capstone_1/pages/fogotpass.dart';
 import 'package:capstone_1/pages/homepage.dart';
 import 'package:capstone_1/pages/signup.dart';
 import 'package:flutter/material.dart';
@@ -59,8 +60,13 @@ class SigninScreenState extends State<SigninScreen> {
                     width: 392,
                     height: 44,
                     child: TextField(
+                      style:
+                          TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
                       decoration: InputDecoration(
                           labelText: 'Email',
+                          labelStyle: TextStyle(
+                            color: Color.fromRGBO(255, 255, 255, 0.75),
+                          ),
                           contentPadding: EdgeInsets.all(10),
                           border: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -74,8 +80,13 @@ class SigninScreenState extends State<SigninScreen> {
                     width: 392,
                     height: 44,
                     child: TextField(
+                      style:
+                          TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
                       decoration: InputDecoration(
                           labelText: 'Password',
+                          labelStyle: TextStyle(
+                            color: Color.fromRGBO(255, 255, 255, 0.75),
+                          ),
                           contentPadding: EdgeInsets.all(10),
                           border: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -91,14 +102,22 @@ class SigninScreenState extends State<SigninScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        'Forget Password?',
-                        style: TextStyle(
-                            color: Color.fromRGBO(143, 200, 123, 1),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'jost'),
-                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => FogotPassword()));
+                        },
+                        child: Text(
+                          'Forget Password?',
+                          style: TextStyle(
+                              color: Color.fromRGBO(143, 200, 123, 1),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'jost'),
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -118,7 +137,9 @@ class SigninScreenState extends State<SigninScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Homepage()));
+                                      builder: (context) => Homepage(
+                                          // expenseValue: context,
+                                          )));
                             },
                             child: Center(
                                 child: Text(

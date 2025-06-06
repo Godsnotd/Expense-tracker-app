@@ -57,9 +57,14 @@ class SignupScreenState extends State<SignupScreen> {
                   width: 392,
                   height: 44,
                   child: TextField(
+                    style:
+                        TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
                     //autofocus: true,
                     decoration: InputDecoration(
                         labelText: 'Fullname',
+                        labelStyle: TextStyle(
+                          color: Color.fromRGBO(255, 255, 255, 0.75),
+                        ),
                         contentPadding: EdgeInsets.all(15),
                         border: OutlineInputBorder(
                             borderSide: const BorderSide(
@@ -75,8 +80,13 @@ class SignupScreenState extends State<SignupScreen> {
                     width: 392,
                     height: 44,
                     child: TextField(
+                      style:
+                          TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
                       decoration: InputDecoration(
                           labelText: 'Email',
+                          labelStyle: TextStyle(
+                            color: Color.fromRGBO(255, 255, 255, 0.75),
+                          ),
                           contentPadding: EdgeInsets.all(15),
                           border: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -90,8 +100,13 @@ class SignupScreenState extends State<SignupScreen> {
                     width: 392,
                     height: 44,
                     child: TextField(
+                      style:
+                          TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
                       decoration: InputDecoration(
                           labelText: 'Password',
+                          labelStyle: TextStyle(
+                            color: Color.fromRGBO(255, 255, 255, 0.75),
+                          ),
                           contentPadding: EdgeInsets.all(10),
                           border: OutlineInputBorder(
                               borderSide: BorderSide(

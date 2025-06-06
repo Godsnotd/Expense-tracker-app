@@ -1,5 +1,6 @@
 import 'package:capstone_1/pages/signup.dart';
 import 'package:flutter/material.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key, required this.title});
