@@ -99,7 +99,6 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                         return ItemField(
                           itemController: TextEditingController(),
                           amountController: TextEditingController(),
-                        
                         );
                       });
                     },
@@ -199,7 +198,6 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                 }
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(SnackBar(
-                                                       
                                                         backgroundColor:
                                                             Color.fromRGBO(
                                                                 29, 27, 40, 1),
@@ -313,6 +311,7 @@ class ItemField extends StatelessWidget {
   final TextEditingController amountController;
 
   @override
+  List<dynamic> itemHolds = [];
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(bottom: 21),
