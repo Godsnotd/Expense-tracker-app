@@ -311,7 +311,7 @@ class ItemField extends StatelessWidget {
   final TextEditingController amountController;
 
   @override
-  List<dynamic> itemHolds = [];
+ 
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(bottom: 21),
