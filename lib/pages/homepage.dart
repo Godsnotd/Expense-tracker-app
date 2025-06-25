@@ -5,6 +5,7 @@ import 'package:capstone_1/pages/expense.dart';
 // import 'package:capstone_1/pages/preview.dart';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({
@@ -17,29 +18,16 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   List<dynamic> expensesTotal = [];
-  // List<String> months = [
-  //   'JAN',
-  //   'FEB',
-  //   'MAR',
-  //   'APR',
-  //   'MAY',
-  //   'JUN',
-  //   'JUL',
-  //   'AUG',
-  //   'SEP',
-  //   'OCT',
-  //   'NOV',
-  //   'DEC'
-  // ];
   dynamic selectedmonth;
   dynamic selectedYear;
-  @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  // }
+  final List<String> months = List.generate(12, (index) {
+    final date = DateTime(0, index + 1); // months are 1-based
+    return DateFormat.MMM().format(date); // Full month name
+  });
   @override
   Widget build(BuildContext context) {
+    // DateTime date = DateTime.now().month;
+    // String months = DateFormat.MMM().format(date);
     return Scaffold(
       // appBar: AppBar(
       //   backgroundColor: Color.fromRGBO(29, 27, 40, 1),
@@ -95,23 +83,19 @@ class _HomepageState extends State<Homepage> {
                         width: 103,
                         height: 50,
                         child: DropdownMenu(
-                          initialSelection: DateTime.january,
+                          initialSelection: DateTime.now(),
                           textAlign: TextAlign.start,
                           textStyle: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
-                          dropdownMenuEntries: List.generate(
-                            12, // From this month + 11 more
-                            (index) {
-                              int month = DateTime.january + index;
-                              return DropdownMenuEntry(
-                                value: month,
-                                label: month.toString(),
-                              );
-                            },
-                          ),
+                          dropdownMenuEntries: months.map((String month) {
+                            return DropdownMenuEntry<String>(
+                              value: month,
+                              label: month,
+                            );
+                          }).toList(),
                           onSelected: (value) {
                             setState(() {
                               selectedmonth =

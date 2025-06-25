@@ -1,5 +1,6 @@
 // import 'package:capstone_1/pages/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ExpenseScreen extends StatefulWidget {
   const ExpenseScreen({super.key});
@@ -18,6 +19,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
   TextEditingController item2Controller = TextEditingController();
   List<dynamic> addMore = [];
   dynamic selectedDate;
+  dynamic formattedDate;
   // String? item;
   // String? amount;
   @override
@@ -82,7 +84,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                   color: Color.fromRGBO(255, 255, 255, 0.75),
                                 ),
                                 SizedBox(width: 8),
-                                Text(selectedDate,
+                                Text('Date Spent:   $selectedDate',
                                     style: TextStyle(
                                         color:
                                             Color.fromRGBO(255, 255, 255, 0.75),
@@ -102,6 +104,8 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                           if (pickedDate != null) {
                             setState(() {
                               selectedDate = pickedDate;
+                              formattedDate =
+                                  DateFormat('yyyy-MM-dd').format(pickedDate);
                             });
                           }
                         })),
@@ -207,8 +211,6 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                               onPressed: () {
                                                 if (spentController
                                                         .text.isNotEmpty &&
-                                                    selectedDate
-                                                        .text.isNotEmpty &&
                                                     itemController
                                                         .text.isNotEmpty &&
                                                     amountController
@@ -219,7 +221,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                       expenseValues = {
                                                     "spent":
                                                         spentController.text,
-                                                    "date": selectedDate,
+                                                    "date": '$selectedDate',
                                                     "item": itemController.text,
                                                     "amount":
                                                         amountController.text,
