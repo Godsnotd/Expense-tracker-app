@@ -28,10 +28,10 @@ class PreviewScreenState extends State<PreviewScreen> {
         title: Text(
           'Expense Preview',
           style: TextStyle(
-              color: Color.fromRGBO(255, 255, 255, 1),
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              fontFamily: 'jost'),
+            color: Color.fromRGBO(255, 255, 255, 1),
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
       body: Padding(
@@ -51,22 +51,22 @@ class PreviewScreenState extends State<PreviewScreen> {
                       Text(
                         'Amount Spent',
                         style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            decorationThickness: 2,
-                            decorationColor: Color.fromRGBO(255, 255, 255, 1),
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'jost'),
+                          decoration: TextDecoration.underline,
+                          decorationThickness: 2,
+                          decorationColor: Color.fromRGBO(255, 255, 255, 1),
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       Center(
                         child: Text(
                           widget.data,
                           style: TextStyle(
-                              color: Color.fromRGBO(143, 200, 123, 1),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'jost'),
+                            color: Color.fromRGBO(143, 200, 123, 1),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ],
@@ -79,22 +79,22 @@ class PreviewScreenState extends State<PreviewScreen> {
                       Text(
                         'Date Spent',
                         style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            decorationThickness: 2,
-                            decorationColor: Color.fromRGBO(255, 255, 255, 1),
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'jost'),
+                          decoration: TextDecoration.underline,
+                          decorationThickness: 2,
+                          decorationColor: Color.fromRGBO(255, 255, 255, 1),
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       Center(
                         child: Text(
                           widget.date,
                           style: TextStyle(
-                              color: Color.fromRGBO(143, 200, 123, 1),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'jost'),
+                            color: Color.fromRGBO(143, 200, 123, 1),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ],
@@ -107,13 +107,13 @@ class PreviewScreenState extends State<PreviewScreen> {
                       Text(
                         'Expense Details',
                         style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            decorationThickness: 2,
-                            decorationColor: Color.fromRGBO(255, 255, 255, 1),
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'jost'),
+                          decoration: TextDecoration.underline,
+                          decorationThickness: 2,
+                          decorationColor: Color.fromRGBO(255, 255, 255, 1),
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       Center(
                         child: SizedBox(
@@ -125,18 +125,18 @@ class PreviewScreenState extends State<PreviewScreen> {
                               Text(
                                 widget.details,
                                 style: TextStyle(
-                                    color: Color.fromRGBO(143, 200, 123, 1),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                    fontFamily: 'jost'),
+                                  color: Color.fromRGBO(143, 200, 123, 1),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                               Text(
                                 widget.amounts,
                                 style: TextStyle(
-                                    color: Color.fromRGBO(143, 200, 123, 1),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                    fontFamily: 'jost'),
+                                  color: Color.fromRGBO(143, 200, 123, 1),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ],
                           ),
@@ -152,13 +152,13 @@ class PreviewScreenState extends State<PreviewScreen> {
                       Text(
                         'Additional Informations',
                         style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            decorationThickness: 2,
-                            decorationColor: Color.fromRGBO(255, 255, 255, 1),
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'jost'),
+                          decoration: TextDecoration.underline,
+                          decorationThickness: 2,
+                          decorationColor: Color.fromRGBO(255, 255, 255, 1),
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       Center(
                         child: SizedBox(
@@ -166,10 +166,10 @@ class PreviewScreenState extends State<PreviewScreen> {
                           child: Text(
                             widget.info,
                             style: TextStyle(
-                                color: Color.fromRGBO(143, 200, 123, 1),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                                fontFamily: 'jost'),
+                              color: Color.fromRGBO(143, 200, 123, 1),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                       ),

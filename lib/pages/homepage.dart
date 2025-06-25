@@ -1,3 +1,5 @@
+//import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:capstone_1/pages/customwid.dart';
 import 'package:capstone_1/pages/expense.dart';
 // import 'package:capstone_1/pages/preview.dart';
@@ -15,12 +17,33 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   List<dynamic> expensesTotal = [];
-
+  // List<String> months = [
+  //   'JAN',
+  //   'FEB',
+  //   'MAR',
+  //   'APR',
+  //   'MAY',
+  //   'JUN',
+  //   'JUL',
+  //   'AUG',
+  //   'SEP',
+  //   'OCT',
+  //   'NOV',
+  //   'DEC'
+  // ];
+  dynamic selectedmonth;
+  dynamic selectedYear;
+  @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(
       //   backgroundColor: Color.fromRGBO(29, 27, 40, 1),
+      //   iconTheme: IconThemeData(color: Color.fromRGBO(255, 255, 255, 1)),
       // ),
       body: SafeArea(
         child: ListView(
@@ -34,10 +57,10 @@ class _HomepageState extends State<Homepage> {
                     Text(
                       'My Expenses',
                       style: TextStyle(
-                          color: Color.fromRGBO(255, 255, 255, 1),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: 'jost'),
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     SizedBox(
                       width: 32,
@@ -72,68 +95,29 @@ class _HomepageState extends State<Homepage> {
                         width: 103,
                         height: 50,
                         child: DropdownMenu(
-                          initialSelection: DateTime.now().month,
+                          initialSelection: DateTime.january,
                           textAlign: TextAlign.start,
-                          // inputDecorationTheme: InputDecorationTheme(),
-                          //menuHeight: 30,
-                          // menuStyle: MenuStyle(
-                          //     backgroundColor: WidgetStateProperty.all(
-                          //         Color.fromRGBO(29, 27, 40, 1))),
                           textStyle: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500),
-                          expandedInsets: EdgeInsets.only(),
-                          //label: Text('MONTHS'),
-                          dropdownMenuEntries: <DropdownMenuEntry<dynamic>>[
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'JAN'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'FEB'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'MAR'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'APR'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'MAY'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'JUN'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'JUL'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'AUG'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'SEP'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'OCT'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'NOV'),
-                            DropdownMenuEntry(
-                                value: DateTime.now().month, label: 'DEC')
-                          ],
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          dropdownMenuEntries: List.generate(
+                            12, // From this month + 11 more
+                            (index) {
+                              int month = DateTime.january + index;
+                              return DropdownMenuEntry(
+                                value: month,
+                                label: month.toString(),
+                              );
+                            },
+                          ),
                           onSelected: (value) {
                             setState(() {
-                              value = DateTime.now().month;
+                              selectedmonth =
+                                  value; // Make sure selectedmonth is a variable in your state
                             });
                           },
-
-                          // style: ButtonStyle(
-                          //     //changing the Style shape of the elevated button
-                          //     backgroundColor: WidgetStateProperty.all(
-                          //       Color.fromRGBO(29, 27, 40, 1),
-                          //     ),
-                          //     shape: WidgetStateProperty.all<
-                          //             RoundedRectangleBorder>(
-                          //         RoundedRectangleBorder(
-                          //             side: BorderSide(
-                          //                 color: Color.fromRGBO(
-                          //                     201, 201, 206, 1)),
-                          //             borderRadius:
-                          //                 BorderRadius.circular(5)))),
-                          // child: Text('NOV',
-                          //     style: TextStyle(
-                          //       color: Color.fromRGBO(255, 255, 255, 1),
-                          //     )),
                         ),
                       ),
                       Padding(
@@ -144,47 +128,25 @@ class _HomepageState extends State<Homepage> {
                           child: DropdownMenu(
                             initialSelection: DateTime.now().year,
                             textAlign: TextAlign.start,
-                            // menuStyle: MenuStyle(
-                            //     backgroundColor: WidgetStateProperty.all(
-                            //         Color.fromRGBO(29, 27, 40, 1))),
-                            // menuStyle: MenuStyle(
-                            //     minimumSize:
-                            //         WidgetStateProperty.all(Size(50, 60))),
                             textStyle: TextStyle(
-                                color: Color.fromRGBO(255, 255, 255, 1),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500),
-                            expandedInsets: EdgeInsets.only(),
-                            //label: Text('MONTHS'),
-                            dropdownMenuEntries: <DropdownMenuEntry<dynamic>>[
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2014'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2015'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2016'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2017'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2018'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2019'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2020'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2021'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2022'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2023'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2024'),
-                              DropdownMenuEntry(
-                                  value: DateTime.now().year, label: '2025')
-                            ],
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            dropdownMenuEntries: List.generate(
+                              11, // From this year + 10 more
+                              (index) {
+                                int year = DateTime.now().year + index;
+                                return DropdownMenuEntry(
+                                  value: year,
+                                  label: year.toString(),
+                                );
+                              },
+                            ),
                             onSelected: (value) {
                               setState(() {
-                                value = DateTime.now().year;
+                                selectedYear =
+                                    value; // Make sure selectedYear is a variable in your state
                               });
                             },
                           ),
@@ -214,19 +176,19 @@ class _HomepageState extends State<Homepage> {
                                   Text(
                                     'This Month',
                                     style: TextStyle(
-                                        color: Color.fromRGBO(255, 255, 255, 1),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'jost'),
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                   SizedBox(height: 8),
                                   Text(
                                     'N 0.0',
                                     style: TextStyle(
-                                        color: Color.fromRGBO(255, 255, 255, 1),
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'jost'),
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -244,19 +206,19 @@ class _HomepageState extends State<Homepage> {
                                   Text(
                                     'This Year',
                                     style: TextStyle(
-                                        color: Color.fromRGBO(255, 255, 255, 1),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'jost'),
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                   SizedBox(height: 8),
                                   Text(
                                     'N 0.0',
                                     style: TextStyle(
-                                        color: Color.fromRGBO(255, 255, 255, 1),
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'jost'),
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -275,10 +237,10 @@ class _HomepageState extends State<Homepage> {
                           child: Text(
                             'Expense History',
                             style: TextStyle(
-                                color: Color.fromRGBO(255, 255, 255, 1),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: 'jost'),
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                            ),
                           )),
                     )
                   ],

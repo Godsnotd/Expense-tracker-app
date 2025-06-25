@@ -13,19 +13,19 @@ Column expenseData(
         leading: Text(
           date,
           style: TextStyle(
-              color: Color.fromRGBO(255, 255, 255, 0.75),
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              fontFamily: 'jost'),
+            color: Color.fromRGBO(255, 255, 255, 0.75),
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
         ),
         title: Center(
             child: Text(
           item,
           style: TextStyle(
-              color: Color.fromRGBO(255, 255, 255, 0.75),
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              fontFamily: 'jost'),
+            color: Color.fromRGBO(255, 255, 255, 0.75),
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
         )),
         // subtitle: Text(details,style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75),
         //       fontSize: 12,
@@ -34,10 +34,10 @@ Column expenseData(
         trailing: Text(
           title,
           style: TextStyle(
-              color: Color.fromRGBO(255, 255, 255, 0.75),
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              fontFamily: 'jost'),
+            color: Color.fromRGBO(255, 255, 255, 0.75),
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
         ),
         tileColor: Color.fromRGBO(40, 41, 61, 1),
         textColor: Color.fromRGBO(255, 255, 255, 0.75),

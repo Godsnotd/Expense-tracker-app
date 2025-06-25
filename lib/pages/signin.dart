@@ -30,10 +30,10 @@ class SigninScreenState extends State<SigninScreen> {
                       child: Text(
                     'Sign In',
                     style: TextStyle(
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'jost'),
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                    ),
                   )),
                 ]),
                 Row(
@@ -47,10 +47,10 @@ class SigninScreenState extends State<SigninScreen> {
                           child: Text(
                             'Track your daily, weekly, and yearly expenses effortlessl',
                             style: TextStyle(
-                                color: Color.fromRGBO(255, 255, 255, 1),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: 'jost'),
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
                           )),
                     ),
                   ],
@@ -112,10 +112,10 @@ class SigninScreenState extends State<SigninScreen> {
                         child: Text(
                           'Forget Password?',
                           style: TextStyle(
-                              color: Color.fromRGBO(143, 200, 123, 1),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'jost'),
+                            color: Color.fromRGBO(143, 200, 123, 1),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       )
                     ],
@@ -147,7 +147,6 @@ class SigninScreenState extends State<SigninScreen> {
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
-                                fontFamily: 'jost',
                                 color: Color.fromRGBO(255, 255, 255, 1),
                               ),
                             ))),
@@ -166,10 +165,10 @@ class SigninScreenState extends State<SigninScreen> {
                     children: [
                       Text('Don’t have an account?',
                           style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'jost')),
+                            color: Color.fromRGBO(255, 255, 255, 1),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          )),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -179,10 +178,10 @@ class SigninScreenState extends State<SigninScreen> {
                         },
                         child: Text('Sign Up',
                             style: TextStyle(
-                                color: Color.fromRGBO(143, 200, 123, 1),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: 'jost')),
+                              color: Color.fromRGBO(143, 200, 123, 1),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            )),
                       ),
                     ],
                   ),

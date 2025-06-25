@@ -32,8 +32,7 @@ class FirstScreenState extends State<FirstScreen> {
                   style: TextStyle(
                       color: Color.fromRGBO(255, 255, 255, 1),
                       fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'jost'),
+                      fontWeight: FontWeight.w500),
                 )),
             Padding(
               padding:
@@ -56,7 +55,6 @@ class FirstScreenState extends State<FirstScreen> {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
-                        fontFamily: 'Jost',
                         color: Color.fromRGBO(255, 255, 255, 1),
                       ),
                     ))),

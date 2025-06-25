@@ -10,10 +10,16 @@ class ExpenseScreen extends StatefulWidget {
 
 class ExpenseScreenState extends State<ExpenseScreen> {
   TextEditingController spentController = TextEditingController();
-  TextEditingController dateController = TextEditingController();
+  //TextEditingController dateController = TextEditingController();
   TextEditingController itemController = TextEditingController();
   TextEditingController amountController = TextEditingController();
   TextEditingController detailsController = TextEditingController();
+  TextEditingController itemsController = TextEditingController();
+  TextEditingController item2Controller = TextEditingController();
+  List<dynamic> addMore = [];
+  dynamic selectedDate;
+  // String? item;
+  // String? amount;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,14 +30,14 @@ class ExpenseScreenState extends State<ExpenseScreen> {
         title: Text(
           'Add Expense',
           style: TextStyle(
-              color: Color.fromRGBO(255, 255, 255, 1),
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              fontFamily: 'jost'),
+            color: Color.fromRGBO(255, 255, 255, 1),
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
       body: ListView(
-        physics: NeverScrollableScrollPhysics(),
+        // physics: NeverScrollableScrollPhysics(),
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 18, vertical: 0),
@@ -59,32 +65,55 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 21),
-                  child: TextField(
-                    controller: dateController,
-                    style:
-                        TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
-                    decoration: InputDecoration(
-                        prefixIcon: IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.calendar_month_rounded)),
-                        labelText: 'Date spent',
-                        labelStyle: TextStyle(
-                          color: Color.fromRGBO(255, 255, 255, 0.75),
+                    padding: EdgeInsets.only(bottom: 21),
+                    child: InkWell(
+                        child: Container(
+                          height: 43,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Color.fromRGBO(255, 255, 255, 0.75)),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.calendar_month,
+                                  color: Color.fromRGBO(255, 255, 255, 0.75),
+                                ),
+                                SizedBox(width: 8),
+                                Text(selectedDate,
+                                    style: TextStyle(
+                                        color:
+                                            Color.fromRGBO(255, 255, 255, 0.75),
+                                        fontSize: 16)),
+                              ],
+                            ),
+                          ),
                         ),
-                        prefixIconColor: Color.fromRGBO(255, 255, 255, 0.75),
-                        contentPadding: EdgeInsets.all(10),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                width: 1,
-                                color: Color.fromRGBO(248, 248, 248, 1)),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(5)))),
-                  ),
-                ),
-                ItemField(
-                    itemController: itemController,
-                    amountController: amountController),
+                        onTap: () async {
+                          DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime(2100),
+                          );
+
+                          if (pickedDate != null) {
+                            setState(() {
+                              selectedDate = pickedDate;
+                            });
+                          }
+                        })),
+                itemField(itemController, amountController),
+                ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return itemField(
+                          addMore[index]["items"], addMore[index]["amounts"]);
+                    },
+                    itemCount: addMore.length),
                 ElevatedButton(
                     style: ButtonStyle(
                         backgroundColor: WidgetStateProperty.all(
@@ -95,11 +124,16 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                 side: BorderSide(color: Colors.black45),
                                 borderRadius: BorderRadius.circular(5)))),
                     onPressed: () {
-                      ListView.builder(itemBuilder: (context, index) {
-                        return ItemField(
-                          itemController: TextEditingController(),
-                          amountController: TextEditingController(),
-                        );
+                      // Map<String, dynamic> collectAdd = {
+                      //   "items": itemsController.text,
+                      //   "amounts": item2Controller.text,
+                      // };
+                      setState(() {
+                        addMore.add({
+                          //collectAdd.entries<"items":itemsController.text>
+                          "items": itemsController.text,
+                          "amounts": item2Controller.text,
+                        });
                       });
                     },
                     child: Row(
@@ -173,7 +207,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                               onPressed: () {
                                                 if (spentController
                                                         .text.isNotEmpty &&
-                                                    dateController
+                                                    selectedDate
                                                         .text.isNotEmpty &&
                                                     itemController
                                                         .text.isNotEmpty &&
@@ -185,7 +219,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                       expenseValues = {
                                                     "spent":
                                                         spentController.text,
-                                                    "date": dateController.text,
+                                                    "date": selectedDate,
                                                     "item": itemController.text,
                                                     "amount":
                                                         amountController.text,
@@ -226,18 +260,17 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                             Text(
                                                               'Expense successfully added',
                                                               style: TextStyle(
-                                                                  color: Color
-                                                                      .fromRGBO(
-                                                                          255,
-                                                                          255,
-                                                                          255,
-                                                                          1),
-                                                                  fontSize: 16,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400,
-                                                                  fontFamily:
-                                                                      'jost'),
+                                                                color: Color
+                                                                    .fromRGBO(
+                                                                        255,
+                                                                        255,
+                                                                        255,
+                                                                        1),
+                                                                fontSize: 16,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400,
+                                                              ),
                                                             )
                                                           ],
                                                         )));
@@ -247,7 +280,6 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                 style: TextStyle(
                                                   fontSize: 18,
                                                   fontWeight: FontWeight.w500,
-                                                  fontFamily: 'jost',
                                                   color: Color.fromRGBO(
                                                       255, 255, 255, 1),
                                                 ),
@@ -268,7 +300,6 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                   style: TextStyle(
                                                     fontSize: 18,
                                                     fontWeight: FontWeight.w500,
-                                                    fontFamily: 'jost',
                                                     color: Color.fromRGBO(
                                                         255, 255, 255, 1),
                                                   ),
@@ -283,7 +314,6 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
-                                fontFamily: 'jost',
                                 color: Color.fromRGBO(255, 255, 255, 1),
                               ),
                             ))),
@@ -298,21 +328,8 @@ class ExpenseScreenState extends State<ExpenseScreen> {
       ),
     );
   }
-}
 
-class ItemField extends StatelessWidget {
-  const ItemField({
-    super.key,
-    required this.itemController,
-    required this.amountController,
-  });
-
-  final TextEditingController itemController;
-  final TextEditingController amountController;
-
-  @override
- 
-  Widget build(BuildContext context) {
+  Padding itemField(dynamic items, dynamic amounts) {
     return Padding(
       padding: EdgeInsets.only(bottom: 21),
       child: Row(

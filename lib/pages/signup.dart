@@ -27,10 +27,10 @@ class SignupScreenState extends State<SignupScreen> {
                     Text(
                       'Sign Up',
                       style: TextStyle(
-                          color: Color.fromRGBO(255, 255, 255, 1),
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: 'jost'),
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ],
                 ),
@@ -45,10 +45,10 @@ class SignupScreenState extends State<SignupScreen> {
                           child: Text(
                             'Simplify your expense tracking and gain full control of your finances.',
                             style: TextStyle(
-                                color: Color.fromRGBO(255, 255, 255, 1),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: 'jost'),
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                            ),
                           )),
                     ),
                   ],
@@ -142,10 +142,10 @@ class SignupScreenState extends State<SignupScreen> {
                         child: Text(
                           'By signing up, you agree to our Terms & Conditions and Privacy Policy',
                           style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: 'jost'),
+                            color: Color.fromRGBO(255, 255, 255, 1),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ),
@@ -200,7 +200,6 @@ class SignupScreenState extends State<SignupScreen> {
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
-                                fontFamily: 'jost',
                                 color: Color.fromRGBO(255, 255, 255, 1),
                               ),
                             ))),
@@ -219,10 +218,10 @@ class SignupScreenState extends State<SignupScreen> {
                     children: [
                       Text('Already have an account?',
                           style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'jost')),
+                            color: Color.fromRGBO(255, 255, 255, 1),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          )),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -232,10 +231,10 @@ class SignupScreenState extends State<SignupScreen> {
                         },
                         child: Text('Sign In',
                             style: TextStyle(
-                                color: Color.fromRGBO(143, 200, 123, 1),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: 'jost')),
+                              color: Color.fromRGBO(143, 200, 123, 1),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            )),
                       ),
                     ],
                   ),

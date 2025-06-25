@@ -30,10 +30,10 @@ class _FogotPasswordState extends State<FogotPassword> {
                       child: Text(
                     'Fogot Password',
                     style: TextStyle(
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'jost'),
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                    ),
                   )),
                 ]),
                 Row(
@@ -47,10 +47,10 @@ class _FogotPasswordState extends State<FogotPassword> {
                           child: Text(
                             "Don't worry! We’ll help you get back on track,Enter your registered email address",
                             style: TextStyle(
-                                color: Color.fromRGBO(255, 255, 255, 1),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: 'jost'),
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
                           )),
                     ),
                   ],
@@ -84,10 +84,10 @@ class _FogotPasswordState extends State<FogotPassword> {
                       child: Text(
                         "We’ll send you a link to reset your password",
                         style: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'jost'),
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
                       )),
                 ),
                 Padding(
@@ -114,7 +114,6 @@ class _FogotPasswordState extends State<FogotPassword> {
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
-                                fontFamily: 'jost',
                                 color: Color.fromRGBO(255, 255, 255, 1),
                               ),
                             ))),

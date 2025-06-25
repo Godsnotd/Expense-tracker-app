@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pennysense',
       theme: ThemeData(
+        fontFamily: 'Jost',
         scaffoldBackgroundColor: Color.fromRGBO(29, 27, 40, 1),
         colorScheme:
             ColorScheme.fromSeed(seedColor: Color.fromRGBO(248, 248, 248, 1)),
