@@ -31,13 +31,19 @@ Column expenseData(
         //       fontSize: 12,
         //       fontWeight: FontWeight.w400,
         //       fontFamily: 'jost'),),
-        trailing: Text(
-          title,
-          style: TextStyle(
-            color: Color.fromRGBO(255, 255, 255, 0.75),
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-          ),
+        trailing: Row(
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                color: Color.fromRGBO(255, 255, 255, 0.75),
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            
+            Icon(Icons.arrow_forward_ios_outlined,color: Color.fromRGBO(255, 255, 255, 0.75),)
+          ],
         ),
         tileColor: Color.fromRGBO(40, 41, 61, 1),
         textColor: Color.fromRGBO(255, 255, 255, 0.75),

@@ -18,8 +18,8 @@ class ExpenseScreenState extends State<ExpenseScreen> {
   TextEditingController itemsController = TextEditingController();
   TextEditingController item2Controller = TextEditingController();
   List<dynamic> addMore = [];
-  dynamic selectedDate;
-  dynamic formattedDate;
+  dynamic selectedDate = '';
+  //dynamic formattedDate;
   // String? item;
   // String? amount;
   @override
@@ -49,6 +49,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                 Padding(
                   padding: EdgeInsets.only(top: 38.74, bottom: 21),
                   child: TextField(
+                    keyboardType: TextInputType.numberWithOptions(),
                     controller: spentController,
                     style:
                         TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
@@ -83,7 +84,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                   Icons.calendar_month,
                                   color: Color.fromRGBO(255, 255, 255, 0.75),
                                 ),
-                                SizedBox(width: 8),
+                                SizedBox(width: 4),
                                 Text('Date Spent:   $selectedDate',
                                     style: TextStyle(
                                         color:
@@ -104,7 +105,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                           if (pickedDate != null) {
                             setState(() {
                               selectedDate = pickedDate;
-                              formattedDate =
+                              selectedDate =
                                   DateFormat('yyyy-MM-dd').format(pickedDate);
                             });
                           }
@@ -203,110 +204,132 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                         content: Text(
                                             "Are You Sure You Want to Add This Expense"),
                                         actions: [
-                                          ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                backgroundColor: Color.fromRGBO(
-                                                    36, 106, 253, 1),
-                                              ),
-                                              onPressed: () {
-                                                if (spentController
-                                                        .text.isNotEmpty &&
-                                                    itemController
-                                                        .text.isNotEmpty &&
-                                                    amountController
-                                                        .text.isNotEmpty &&
-                                                    detailsController
-                                                        .text.isNotEmpty) {
-                                                  Map<String, dynamic>
-                                                      expenseValues = {
-                                                    "spent":
-                                                        spentController.text,
-                                                    "date": '$selectedDate',
-                                                    "item": itemController.text,
-                                                    "amount":
-                                                        amountController.text,
-                                                    "details":
-                                                        detailsController.text,
-                                                  };
-                                                  Navigator.pop(context);
-                                                  Navigator.pop(
-                                                      context, expenseValues);
-                                                }
-                                                ScaffoldMessenger.of(context)
-                                                    .showSnackBar(SnackBar(
-                                                        backgroundColor:
-                                                            Color.fromRGBO(
-                                                                29, 27, 40, 1),
-
-                                                        // shape: ShapeBorder.lerp(
-                                                        //     Border(),
-                                                        //     CircleBorder(),
-                                                        //     10),
-                                                        // duration:
-                                                        //     Durations.medium3,
-                                                        content: Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Icon(
-                                                              Icons
-                                                                  .check_circle_sharp,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      0,
-                                                                      237,
-                                                                      63,
-                                                                      1),
-                                                            ),
-                                                            Text(
-                                                              'Expense successfully added',
-                                                              style: TextStyle(
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        255,
-                                                                        255,
-                                                                        255,
-                                                                        1),
-                                                                fontSize: 16,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400,
-                                                              ),
-                                                            )
-                                                          ],
-                                                        )));
-                                              },
-                                              child: Text(
-                                                'Confirm',
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Color.fromRGBO(
-                                                      255, 255, 255, 1),
-                                                ),
-                                              )),
-                                          SizedBox(width: 26),
-                                          SizedBox(
-                                            width: 120,
-                                            child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
+                                          Row(
+                                            children: [
+                                              ElevatedButton(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
                                                     backgroundColor:
                                                         Color.fromRGBO(
-                                                            40, 41, 61, 1)),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                                child: Text(
-                                                  'Cancel',
-                                                  style: TextStyle(
-                                                    fontSize: 18,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Color.fromRGBO(
-                                                        255, 255, 255, 1),
+                                                            36, 106, 253, 1),
                                                   ),
-                                                )),
-                                          )
+                                                  onPressed: () {
+                                                    if (spentController
+                                                            .text.isNotEmpty &&
+                                                        itemController
+                                                            .text.isNotEmpty &&
+                                                        amountController
+                                                            .text.isNotEmpty &&
+                                                        detailsController
+                                                            .text.isNotEmpty) {
+                                                      Map<String, dynamic>
+                                                          expenseValues = {
+                                                        "spent": spentController
+                                                            .text,
+                                                        "date": '$selectedDate',
+                                                        "item":
+                                                            itemController.text,
+                                                        "amount":
+                                                            amountController
+                                                                .text,
+                                                        "details":
+                                                            detailsController
+                                                                .text,
+                                                      };
+                                                      Navigator.pop(context);
+                                                      Navigator.pop(context,
+                                                          expenseValues);
+                                                    }
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(SnackBar(
+                                                            backgroundColor:
+                                                                Color.fromRGBO(
+                                                                    29,
+                                                                    27,
+                                                                    40,
+                                                                    1),
+
+                                                            // shape: ShapeBorder.lerp(
+                                                            //     Border(),
+                                                            //     CircleBorder(),
+                                                            //     10),
+                                                            // duration:
+                                                            //     Durations.medium3,
+                                                            content: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Icon(
+                                                                  Icons
+                                                                      .check_circle_sharp,
+                                                                  color: Color
+                                                                      .fromRGBO(
+                                                                          0,
+                                                                          237,
+                                                                          63,
+                                                                          1),
+                                                                ),
+                                                                Text(
+                                                                  'Expense successfully added',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Color
+                                                                        .fromRGBO(
+                                                                            255,
+                                                                            255,
+                                                                            255,
+                                                                            1),
+                                                                    fontSize:
+                                                                        16,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                            )));
+                                                  },
+                                                  child: Text(
+                                                    'Confirm',
+                                                    style: TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Color.fromRGBO(
+                                                          255, 255, 255, 1),
+                                                    ),
+                                                  )),
+                                              SizedBox(width: 26),
+                                              SizedBox(
+                                                width: 120,
+                                                child: ElevatedButton(
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                            backgroundColor:
+                                                                Color.fromRGBO(
+                                                                    40,
+                                                                    41,
+                                                                    61,
+                                                                    1)),
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: Text(
+                                                      'Cancel',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: Color.fromRGBO(
+                                                            255, 255, 255, 1),
+                                                      ),
+                                                    )),
+                                              )
+                                            ],
+                                          ),
                                         ],
                                       ));
                             },
@@ -355,6 +378,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
           SizedBox(width: 15),
           Expanded(
             child: TextField(
+              keyboardType: TextInputType.numberWithOptions(),
               controller: amountController,
               style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
               decoration: InputDecoration(

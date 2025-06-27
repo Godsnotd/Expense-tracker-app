@@ -26,8 +26,6 @@ class _HomepageState extends State<Homepage> {
   });
   @override
   Widget build(BuildContext context) {
-    // DateTime date = DateTime.now().month;
-    // String months = DateFormat.MMM().format(date);
     return Scaffold(
       // appBar: AppBar(
       //   backgroundColor: Color.fromRGBO(29, 27, 40, 1),
@@ -50,27 +48,22 @@ class _HomepageState extends State<Homepage> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    SizedBox(
-                      width: 32,
-                      height: 28,
-                      child: IconButton(
-                        onPressed: () {
-                          Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => ExpenseScreen()))
-                              .then((value) {
-                            if (value != null) {
-                              setState(() {
-                                expensesTotal.add(value);
-                              });
-                            }
-                          });
-                        },
-                        iconSize: 29,
-                        icon: Icon(Icons.add_circle,
-                            color: Color.fromRGBO(36, 106, 253, 1)),
-                      ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => ExpenseScreen())).then((value) {
+                          if (value != null) {
+                            setState(() {
+                              expensesTotal.add(value);
+                            });
+                          }
+                        });
+                      },
+                      iconSize: 29,
+                      icon: Icon(Icons.add_circle,
+                          color: Color.fromRGBO(36, 106, 253, 1)),
                     ),
                   ],
                 ),
