@@ -73,8 +73,8 @@ class _HomepageState extends State<Homepage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
-                        width: 103,
-                        height: 50,
+                        width: 107,
+                        height: 45,
                         child: DropdownMenu(
                           initialSelection: DateTime.now(),
                           textAlign: TextAlign.start,
@@ -100,8 +100,8 @@ class _HomepageState extends State<Homepage> {
                       Padding(
                         padding: const EdgeInsets.only(left: 62),
                         child: SizedBox(
-                          width: 103,
-                          height: 50,
+                          width: 107,
+                          height: 45,
                           child: DropdownMenu(
                             initialSelection: DateTime.now().year,
                             textAlign: TextAlign.start,
