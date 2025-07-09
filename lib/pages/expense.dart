@@ -13,15 +13,12 @@ class ExpenseScreenState extends State<ExpenseScreen> {
   TextEditingController spentController = TextEditingController();
   //TextEditingController dateController = TextEditingController();
   TextEditingController itemController = TextEditingController();
-  TextEditingController amountController = TextEditingController();
+  //TextEditingController amountController = TextEditingController();
   TextEditingController detailsController = TextEditingController();
-  TextEditingController itemsController = TextEditingController();
-  TextEditingController item2Controller = TextEditingController();
-  List<dynamic> addMore = [];
+  List<Map<String, dynamic>> addMore = [];
   dynamic selectedDate = '';
-  //dynamic formattedDate;
-  // String? item;
-  // String? amount;
+  dynamic selecteditem = ''; // the variable for the map
+  dynamic selectedamount = ''; // the variable for the map
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,13 +107,13 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                             });
                           }
                         })),
-                itemField(itemController, amountController),
+                itemField('', '', 1),
                 ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
-                      return itemField(
-                          addMore[index]["items"], addMore[index]["amounts"]);
+                      return itemField(addMore[index]["item"],
+                          addMore[index]["amount"], index);
                     },
                     itemCount: addMore.length),
                 ElevatedButton(
@@ -136,8 +133,8 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                       setState(() {
                         addMore.add({
                           //collectAdd.entries<"items":itemsController.text>
-                          "items": itemsController.text,
-                          "amounts": item2Controller.text,
+                          "items": '',
+                          "amounts": '',
                         });
                       });
                     },
@@ -216,10 +213,8 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                   onPressed: () {
                                                     if (spentController
                                                             .text.isNotEmpty &&
-                                                        itemController
-                                                            .text.isNotEmpty &&
-                                                        amountController
-                                                            .text.isNotEmpty &&
+                                                        "item".isNotEmpty &&
+                                                        "amount".isNotEmpty &&
                                                         detailsController
                                                             .text.isNotEmpty) {
                                                       Map<String, dynamic>
@@ -227,11 +222,8 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                         "spent": spentController
                                                             .text,
                                                         "date": '$selectedDate',
-                                                        "item":
-                                                            itemController.text,
-                                                        "amount":
-                                                            amountController
-                                                                .text,
+                                                        "item": '',
+                                                        "amount": '',
                                                         "details":
                                                             detailsController
                                                                 .text,
@@ -354,14 +346,14 @@ class ExpenseScreenState extends State<ExpenseScreen> {
     );
   }
 
-  Padding itemField(dynamic items, dynamic amounts) {
+  Padding itemField(dynamic items, dynamic amounts, int index) {
     return Padding(
       padding: EdgeInsets.only(bottom: 21),
       child: Row(
         children: [
           Expanded(
             child: TextField(
-              controller: itemController,
+              // controller: itemController,
               style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
               decoration: InputDecoration(
                   labelText: 'Item',
@@ -373,13 +365,16 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                       borderSide: BorderSide(
                           width: 1, color: Color.fromRGBO(248, 248, 248, 1)),
                       borderRadius: BorderRadius.all(Radius.circular(5)))),
+              // onChanged: (value) {
+              //   addMore[index]["item"] = value;
+              // },
             ),
           ),
           SizedBox(width: 15),
           Expanded(
             child: TextField(
               keyboardType: TextInputType.numberWithOptions(),
-              controller: amountController,
+              //controller: amountController,
               style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
               decoration: InputDecoration(
                   labelText: 'Amount(N)',
@@ -391,6 +386,9 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                       borderSide: BorderSide(
                           width: 1, color: Color.fromRGBO(248, 248, 248, 1)),
                       borderRadius: BorderRadius.all(Radius.circular(5)))),
+              // onChanged: (value) {
+              //   addMore[index]["amount"] = value;
+              // },
             ),
           ),
         ],

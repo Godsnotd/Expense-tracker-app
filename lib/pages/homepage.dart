@@ -76,7 +76,7 @@ class _HomepageState extends State<Homepage> {
                         width: 107,
                         height: 45,
                         child: DropdownMenu(
-                          initialSelection: DateTime.now(),
+                          initialSelection: DateTime.now().month,
                           textAlign: TextAlign.start,
                           textStyle: TextStyle(
                             color: Colors.white,

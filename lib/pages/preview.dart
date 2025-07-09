@@ -122,14 +122,17 @@ class PreviewScreenState extends State<PreviewScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             //mainAxisSize: MainAxisSize.max,
                             children: [
-                              Text(
-                                widget.details,
-                                style: TextStyle(
-                                  color: Color.fromRGBO(143, 200, 123, 1),
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700,
+                              Flexible(
+                                child: Text(
+                                  widget.details,
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(143, 200, 123, 1),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
+                              SizedBox(width: 30),
                               Text(
                                 widget.amounts,
                                 style: TextStyle(
