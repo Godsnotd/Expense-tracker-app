@@ -1,10 +1,11 @@
 import 'package:capstone_1/pages/preview.dart';
 import 'package:flutter/material.dart';
 
-const context = BuildContext;
-Column expenseData(
-    String title, String date, String item, String amount, dynamic details,
+// const context = BuildContext;
+Column expenseData(dynamic title, dynamic date,
+    List<Map<String, dynamic>> addMore, dynamic details,
     {required BuildContext context}) {
+  dynamic addmoreSummary = addMore.map((e) => "${e['item']} ").join();
   return Column(
     children: [
       Card(
@@ -20,7 +21,8 @@ Column expenseData(
         ),
         title: Center(
             child: Text(
-          item,
+          overflow: TextOverflow.ellipsis,
+          addmoreSummary,
           style: TextStyle(
             color: Color.fromRGBO(255, 255, 255, 0.75),
             fontSize: 14,
@@ -65,9 +67,8 @@ Column expenseData(
                   builder: (_) => PreviewScreen(
                         data: title,
                         date: date,
-                        details: item,
+                        details: addMore,
                         info: details,
-                        amounts: amount,
                       )));
         },
       )),

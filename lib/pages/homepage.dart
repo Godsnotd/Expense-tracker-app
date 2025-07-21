@@ -24,6 +24,7 @@ class _HomepageState extends State<Homepage> {
     final date = DateTime(0, index + 1); // months are 1-based
     return DateFormat.MMM().format(date); // Full month name
   });
+  //String initmonth = DateTime.now().month.toString();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +77,8 @@ class _HomepageState extends State<Homepage> {
                         width: 107,
                         height: 45,
                         child: DropdownMenu(
-                          initialSelection: DateTime.now().month,
+                          initialSelection:
+                              DateFormat.MMM().format(DateTime.now()),
                           textAlign: TextAlign.start,
                           textStyle: TextStyle(
                             color: Colors.white,
@@ -111,9 +113,9 @@ class _HomepageState extends State<Homepage> {
                               fontWeight: FontWeight.w500,
                             ),
                             dropdownMenuEntries: List.generate(
-                              11, // From this year + 10 more
+                              11, // From this year - 10 more
                               (index) {
-                                int year = DateTime.now().year + index;
+                                int year = DateTime.now().year - index;
                                 return DropdownMenuEntry(
                                   value: year,
                                   label: year.toString(),
@@ -133,7 +135,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
                 Container(
-                  width: 392,
+                  //width: 392,
                   height: 114,
                   decoration: BoxDecoration(
                       color: Color.fromRGBO(36, 106, 253, 1),
@@ -146,8 +148,8 @@ class _HomepageState extends State<Homepage> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             SizedBox(
-                              width: 89,
-                              height: 71,
+                              // width: 89,
+                              // height: 71,
                               child: Column(
                                 children: [
                                   Text(
@@ -229,8 +231,8 @@ class _HomepageState extends State<Homepage> {
                     return expenseData(
                         expensesTotal[index]["spent"],
                         expensesTotal[index]["date"],
-                        expensesTotal[index]["item"],
-                        expensesTotal[index]["amount"],
+                        List<Map<String, dynamic>>.from(
+                            expensesTotal[index]["addmore"]),
                         expensesTotal[index]["details"],
                         context: context);
                   },

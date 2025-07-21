@@ -40,22 +40,22 @@ class SignupScreenState extends State<SignupScreen> {
                       padding:
                           EdgeInsets.only(top: 5.04, left: 1.51, bottom: 43.96),
                       child: SizedBox(
-                          width: 296.01,
-                          height: 46,
+                          // width: 296.01,
+                          // height: 46,
                           child: Text(
-                            'Simplify your expense tracking and gain full control of your finances.',
-                            style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )),
+                        'Simplify your expense tracking and gain full control\nof your finances.',
+                        style: TextStyle(
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      )),
                     ),
                   ],
                 ),
                 SizedBox(
-                  width: 392,
-                  height: 44,
+                  // width: 392,
+                  // height: 44,
                   child: TextField(
                     style:
                         TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
@@ -77,51 +77,47 @@ class SignupScreenState extends State<SignupScreen> {
                 ),
                 SizedBox(height: 27),
                 SizedBox(
-                    width: 392,
-                    height: 44,
+                    // width: 392,
+                    // height: 44,
                     child: TextField(
-                      style:
-                          TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
-                      decoration: InputDecoration(
-                          labelText: 'Email',
-                          labelStyle: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 0.75),
-                          ),
-                          contentPadding: EdgeInsets.all(15),
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 1,
-                                  color: Color.fromRGBO(248, 248, 248, 1)),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5)))),
-                    )),
+                  style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
+                  decoration: InputDecoration(
+                      labelText: 'Email',
+                      labelStyle: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 0.75),
+                      ),
+                      contentPadding: EdgeInsets.all(15),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 1,
+                              color: Color.fromRGBO(248, 248, 248, 1)),
+                          borderRadius: BorderRadius.all(Radius.circular(5)))),
+                )),
                 SizedBox(height: 27),
                 SizedBox(
-                    width: 392,
-                    height: 44,
+                    // width: 392,
+                    // height: 44,
                     child: TextField(
-                      style:
-                          TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
-                      decoration: InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 0.75),
-                          ),
-                          contentPadding: EdgeInsets.all(10),
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 1,
-                                  color: Color.fromRGBO(248, 248, 248, 1)),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5)))),
-                    )),
+                  style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
+                  decoration: InputDecoration(
+                      labelText: 'Password',
+                      labelStyle: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 0.75),
+                      ),
+                      contentPadding: EdgeInsets.all(10),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 1,
+                              color: Color.fromRGBO(248, 248, 248, 1)),
+                          borderRadius: BorderRadius.all(Radius.circular(5)))),
+                )),
                 SizedBox(height: 24.22),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: 24,
-                      height: 24,
+                      // width: 24,
+                      // height: 24,
                       child: Checkbox(
                           side: BorderSide(
                               width: 1,

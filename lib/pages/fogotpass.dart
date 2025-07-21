@@ -42,53 +42,51 @@ class _FogotPasswordState extends State<FogotPassword> {
                       padding:
                           EdgeInsets.only(top: 5.04, left: 1.51, right: 10.51),
                       child: SizedBox(
-                          width: 310,
-                          height: 43,
+                          // width: 310,
+                          // height: 43,
                           child: Text(
-                            "Don't worry! We’ll help you get back on track,Enter your registered email address",
-                            style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20.96),
-                SizedBox(
-                    width: 392,
-                    height: 44,
-                    child: TextField(
-                      style:
-                          TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
-                      decoration: InputDecoration(
-                          labelText: 'Email',
-                          labelStyle: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 0.75),
-                          ),
-                          contentPadding: EdgeInsets.all(10),
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 1,
-                                  color: Color.fromRGBO(248, 248, 248, 1)),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5)))),
-                    )),
-                Padding(
-                  padding:
-                      EdgeInsets.only(top: 27.97, left: 1.51, right: 10.51),
-                  child: SizedBox(
-                      width: 310,
-                      height: 43,
-                      child: Text(
-                        "We’ll send you a link to reset your password",
+                        "Don't worry! We’ll help you get back on track,Enter your\nregistered email address",
                         style: TextStyle(
                           color: Color.fromRGBO(255, 255, 255, 1),
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
                       )),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20.96),
+                SizedBox(
+                    // width: 392,
+                    // height: 44,
+                    child: TextField(
+                  style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.75)),
+                  decoration: InputDecoration(
+                      labelText: 'Email',
+                      labelStyle: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 0.75),
+                      ),
+                      contentPadding: EdgeInsets.all(10),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 1,
+                              color: Color.fromRGBO(248, 248, 248, 1)),
+                          borderRadius: BorderRadius.all(Radius.circular(5)))),
+                )),
+                Padding(
+                  padding:
+                      EdgeInsets.only(top: 27.97, left: 1.51, right: 10.51),
+                  child: SizedBox(
+                      // width: 310,
+                      // height: 43,
+                      child: Text(
+                    "We’ll send you a link to reset your password",
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  )),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 120, left: 15, right: 15),

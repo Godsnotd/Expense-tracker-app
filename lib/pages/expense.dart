@@ -11,14 +11,16 @@ class ExpenseScreen extends StatefulWidget {
 
 class ExpenseScreenState extends State<ExpenseScreen> {
   TextEditingController spentController = TextEditingController();
-  //TextEditingController dateController = TextEditingController();
-  TextEditingController itemController = TextEditingController();
-  //TextEditingController amountController = TextEditingController();
   TextEditingController detailsController = TextEditingController();
-  List<Map<String, dynamic>> addMore = [];
+  List<Map<String, dynamic>> addMore = [
+    {
+      "item": '',
+      "amount": '',
+    }
+  ];
   dynamic selectedDate = '';
-  dynamic selecteditem = ''; // the variable for the map
-  dynamic selectedamount = ''; // the variable for the map
+  //dynamic selecteditem = addMore; // the variable for the map
+  //dynamic selectedamount = ''; // the variable for the map
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,13 +109,12 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                             });
                           }
                         })),
-                itemField('', '', 1),
+                //itemField(0),
                 ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
-                      return itemField(addMore[index]["item"],
-                          addMore[index]["amount"], index);
+                      return itemField(index);
                     },
                     itemCount: addMore.length),
                 ElevatedButton(
@@ -133,8 +134,8 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                       setState(() {
                         addMore.add({
                           //collectAdd.entries<"items":itemsController.text>
-                          "items": '',
-                          "amounts": '',
+                          "item": '',
+                          "amount": '',
                         });
                       });
                     },
@@ -147,7 +148,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                           size: 30,
                         ),
                         SizedBox(width: 4.74),
-                        Text('Add Epense',
+                        Text('Add Expense',
                             style: TextStyle(
                                 color: Color.fromRGBO(248, 248, 248, 1),
                                 fontSize: 16)),
@@ -213,8 +214,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                   onPressed: () {
                                                     if (spentController
                                                             .text.isNotEmpty &&
-                                                        "item".isNotEmpty &&
-                                                        "amount".isNotEmpty &&
+                                                        addMore.isNotEmpty &&
                                                         detailsController
                                                             .text.isNotEmpty) {
                                                       Map<String, dynamic>
@@ -222,8 +222,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                         "spent": spentController
                                                             .text,
                                                         "date": '$selectedDate',
-                                                        "item": '',
-                                                        "amount": '',
+                                                        "addmore": addMore,
                                                         "details":
                                                             detailsController
                                                                 .text,
@@ -295,7 +294,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                   )),
                                               SizedBox(width: 26),
                                               SizedBox(
-                                                width: 120,
+                                                //width: 120,
                                                 child: ElevatedButton(
                                                     style: ElevatedButton
                                                         .styleFrom(
@@ -346,7 +345,7 @@ class ExpenseScreenState extends State<ExpenseScreen> {
     );
   }
 
-  Padding itemField(dynamic items, dynamic amounts, int index) {
+  Padding itemField(int index) {
     return Padding(
       padding: EdgeInsets.only(bottom: 21),
       child: Row(
@@ -365,9 +364,9 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                       borderSide: BorderSide(
                           width: 1, color: Color.fromRGBO(248, 248, 248, 1)),
                       borderRadius: BorderRadius.all(Radius.circular(5)))),
-              // onChanged: (value) {
-              //   addMore[index]["item"] = value;
-              // },
+              onChanged: (value) {
+                addMore[index]["item"] = value;
+              },
             ),
           ),
           SizedBox(width: 15),
@@ -386,9 +385,9 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                       borderSide: BorderSide(
                           width: 1, color: Color.fromRGBO(248, 248, 248, 1)),
                       borderRadius: BorderRadius.all(Radius.circular(5)))),
-              // onChanged: (value) {
-              //   addMore[index]["amount"] = value;
-              // },
+              onChanged: (value) {
+                addMore[index]["amount"] = value;
+              },
             ),
           ),
         ],
