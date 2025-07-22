@@ -1,9 +1,13 @@
 import 'package:capstone_1/pages/onboarding.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init(); // Initialize GetStorage
+  runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

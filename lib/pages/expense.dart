@@ -1,6 +1,7 @@
 // import 'package:capstone_1/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:get_storage/get_storage.dart';
 
 class ExpenseScreen extends StatefulWidget {
   const ExpenseScreen({super.key});
@@ -10,6 +11,8 @@ class ExpenseScreen extends StatefulWidget {
 }
 
 class ExpenseScreenState extends State<ExpenseScreen> {
+  final box = GetStorage();
+
   TextEditingController spentController = TextEditingController();
   TextEditingController detailsController = TextEditingController();
   List<Map<String, dynamic>> addMore = [
@@ -227,6 +230,16 @@ class ExpenseScreenState extends State<ExpenseScreen> {
                                                             detailsController
                                                                 .text,
                                                       };
+                                                      List<dynamic>
+                                                          existingExpenses =
+                                                          box.read(
+                                                                  'expenses') ??
+                                                              [];
+                                                      existingExpenses
+                                                          .add(expenseValues);
+                                                      box.write('expenses',
+                                                          existingExpenses);
+
                                                       Navigator.pop(context);
                                                       Navigator.pop(context,
                                                           expenseValues);
